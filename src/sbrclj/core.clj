@@ -8,28 +8,31 @@
 (def letters [:R :E :I :T :N :S :U :L :A :B])
 
 (defn reiten [lnmap]
-  (+ (* 100000 (get lnmap :R))
-    (* 10000 (get lnmap :E))
-    (* 1000 (get lnmap :I))
-    (* 100 (get lnmap :T))
-    (* 10 (get lnmap :E))
-    (get lnmap :N)))
+  (+
+    (* (lnmap :R) 100000)
+    (* (lnmap :E) 10000)
+    (* (lnmap :I) 1000)
+    (* (lnmap :T) 100)
+    (* (lnmap :E) 10)
+    (* (lnmap :N) 1)))
 
 (defn tennis [lnmap]
-  (+ (* 100000 (get lnmap :T))
-    (* 10000 (get lnmap :E))
-    (* 1000 (get lnmap :N))
-    (* 100 (get lnmap :N))
-    (* 10 (get lnmap :I))
-    (get lnmap :S)))
+  (+
+    (* (lnmap :T) 100000)
+    (* (lnmap :E) 10000)
+    (* (lnmap :N) 1000)
+    (* (lnmap :N) 100)
+    (* (lnmap :I) 10)
+    (* (lnmap :S) 1)))
 
 (defn urlaub [lnmap]
-  (+ (* 100000 (get lnmap :U))
-    (* 10000 (get lnmap :R))
-    (* 1000 (get lnmap :L))
-    (* 100 (get lnmap :A))
-    (* 10 (get lnmap :U))
-    (get lnmap :B)))
+  (+
+    (* (lnmap :U) 100000)
+    (* (lnmap :R) 10000)
+    (* (lnmap :L) 1000)
+    (* (lnmap :A) 100)
+    (* (lnmap :U) 10)
+    (* (lnmap :B) 1)))
 
 (defn assign-numbers-to-letters [numbers]
   (apply hash-map (interleave letters (vec numbers))))
@@ -66,4 +69,6 @@
 
 
 ;;;;;;;;;;;;;
-;(-main)
+(-main)
+
+;;;;
